@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinComponents.ComponentVideoPlayer"
+    xmlns:forms="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
+    xmlns:video="clr-namespace:Xam.Forms.VideoPlayer;assembly=Xam.Forms.VideoPlayer"
+    x:Name="ViewMediaPlayer">
+    <ContentView.Content>
+        <StackLayout
+            Padding="0"
+            Spacing="0">
+            <forms:VideoView
+                BackgroundColor="Red"
+                HeightRequest="250"
+                HorizontalOptions="FillAndExpand"
+                VideoAspect="AspectFit"
+                ShowControls="True"/>
+            <Button
+                Text="{Binding StatusButton, Source={x:Reference ViewMediaPlayer}}"
+                TextColor="Black"
+                BackgroundColor="White"
+                BorderColor="Black"
+                BorderWidth="1"
+                Command="{Binding CommandEventsButton, Source={x:Reference ViewMediaPlayer}}"/>
+            <StackLayout
+                Padding="0">
+
+                    <video:VideoPlayer
+                        x:Name="videoPlayer"
+                        Source="{Binding UriVideoSource, Source={x:Reference ViewMediaPlayer}}"
+                        
+                        BackgroundColor="Black"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="250"
+                        PlayCompletion="VideoPlayer_PlayCompletion" 
+                        PlayError="VideoPlayer_PlayError"/>
+                    <ActivityIndicator
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Color="White"
+                        BackgroundColor="Transparent"
+                        IsVisible="False">
+                        <ActivityIndicator.Triggers>
+                            <DataTrigger
+                                TargetType="ActivityIndicator"
+                                Binding="{Binding Source={x:Reference videoPlayer}, 
+                                                   Path=Status}"
+                                Value="{x:Static video:VideoStatus.NotReady}">
+                                <Setter Property="IsVisible" Value="True" />
+                                <Setter Property="IsRunning" Value="True" />
+                            </DataTrigger>
+                        </ActivityIndicator.Triggers>
+                    </ActivityIndicator>
+                    <Button
+                        Text="{Binding StatusButton, Source={x:Reference ViewMediaPlayer}}"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        Command="{Binding CommandVideoEventsButton, Source={x:Reference ViewMediaPlayer}}"/>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

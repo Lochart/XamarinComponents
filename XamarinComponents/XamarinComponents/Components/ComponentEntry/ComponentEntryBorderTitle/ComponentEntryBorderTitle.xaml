@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinComponents.ComponentEntryBorderTitle"
+    xmlns:local="clr-namespace:XamarinComponents;assembly=XamarinComponents"
+    x:Name="ViewEntryBorderTitle">
+    <ContentView.Content>
+        <AbsoluteLayout
+            Padding="0">
+            <Frame
+                BorderColor="Black"
+                Padding="5,0"
+                VerticalOptions="Start"
+                HasShadow="False"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+                <local:CustomEntry
+                    Text="{Binding Text, Source={x:Reference ViewEntryBorderTitle}}"
+                    TextColor="Black"
+                    Placeholder="{Binding PlaceholderText, Source={x:Reference ViewEntryBorderTitle}}"
+                    PlaceholderColor="Gray"
+                    VerticalOptions="FillAndExpand"
+                    HeightRequest="50"
+                    IsCurvedCornersEnabled="False"/>
+            </Frame>
+            <StackLayout
+                BackgroundColor="White"
+                Margin="15,-7,0,0"
+                Padding="3,0">
+                <Label
+                    Text="{Binding Title, Source={x:Reference ViewEntryBorderTitle}}"
+                    TextColor="Black"
+                    FontSize="12"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

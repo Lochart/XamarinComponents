@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinComponents.ButtonPage"
+    xmlns:local="clr-namespace:XamarinComponents;assembly=XamarinComponents"
+    xmlns:custom="clr-namespace:XamarinComponents">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="White"
+            Padding="10">
+            <Button
+              Style="{StaticResource ButtonExampleOne}"/>
+            <Button
+              Style="{StaticResource ButtonExampleTwo}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

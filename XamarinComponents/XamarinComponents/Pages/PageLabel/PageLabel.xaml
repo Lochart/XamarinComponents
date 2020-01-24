@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinComponents.PageLabel"
+    xmlns:local="clr-namespace:XamarinComponents;assembly=XamarinComponents"
+    xmlns:custom="clr-namespace:XamarinComponents">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="White">
+            <local:ComponentsTitleAndDescription
+                Title="Заголовок"
+                Description="Описание"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

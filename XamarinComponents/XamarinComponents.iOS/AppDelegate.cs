@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FFImageLoading;
+using FFImageLoading.Forms.Platform;
 using Foundation;
+using MediaManager;
 using UIKit;
 
 namespace XamarinComponents.iOS
@@ -22,6 +24,26 @@ namespace XamarinComponents.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            App.DeviceWindowHeight = (int)UIScreen.MainScreen.Bounds.Height;
+            App.DeviceWindowWidth = (int)UIScreen.MainScreen.Bounds.Width;
+
+            Xam.Forms.VideoPlayer.iOS.VideoPlayerRenderer.Init();
+
+            CrossMediaManager.Current.Init();
+
+            CachedImageRenderer.Init();
+            CachedImageRenderer.InitImageSourceHandler();
+
+            var config = new FFImageLoading.Config.Configuration()
+            {
+                VerboseLogging = false,
+                VerbosePerformanceLogging = false,
+                VerboseMemoryCacheLogging = false,
+                VerboseLoadingCancelledLogging = false,
+                Logger = new CustomLogger(),
+            };
+            ImageService.Instance.Initialize(config);
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using MediaManager;
+using FFImageLoading.Forms.Platform;
+using FFImageLoading;
 
 namespace XamarinComponents.Droid
 {
@@ -14,10 +17,30 @@ namespace XamarinComponents.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            App.DeviceWindowHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
+            App.DeviceWindowWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            Xam.Forms.VideoPlayer.Android.VideoPlayerRenderer.Init();
+
+            CrossMediaManager.Current.Init(this);
+
+            CachedImageRenderer.Init(true);
+            CachedImageRenderer.InitImageViewHandler();
+
+            var config = new FFImageLoading.Config.Configuration()
+            {
+                VerboseLogging = false,
+                VerbosePerformanceLogging = false,
+                VerboseMemoryCacheLogging = false,
+                VerboseLoadingCancelledLogging = false,
+                Logger = new CustomLogger(),
+            };
+            ImageService.Instance.Initialize(config);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

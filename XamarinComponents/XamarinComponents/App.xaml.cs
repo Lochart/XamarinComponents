@@ -6,11 +6,29 @@ namespace XamarinComponents
 {
     public partial class App : Application
     {
+        /// <summary>
+        /// Высота экрана устройства
+        /// </summary>
+        public static int DeviceWindowHeight { get; set; }
+
+        /// <summary>
+        /// Ширина экрана устройства
+        /// </summary>
+        public static int DeviceWindowWidth { get; set; }
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //Overall.Add("DeviceWindowHeight", DeviceWindowHeight);
+            //Overall.Add("DeviceWindowWidth", DeviceWindowWidth);
+            ManagerLoaderPopup.Init();
+
+            MainPage = new NavigationPage(
+                new MainPage
+                {
+                    BindingContext = new VMMainPage()
+                });
         }
 
         protected override void OnStart()

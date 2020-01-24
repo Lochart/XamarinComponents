@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinComponents.PageScrollHeaderFloatingAndListView">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <ScrollView
+            x:Name="TestView"
+            VerticalOptions="Start"
+            VerticalScrollBarVisibility="Never"
+            Scrolled="ScollViewScrolled"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="SizeProportional">
+            <StackLayout
+                Padding="0">
+                <StackLayout>
+                    <Label
+                        Text="Романов Николай Викторович"
+                        TextColor="Black"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout
+                    x:Name="PanelOverall"
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Spacing="1"
+                    Padding="0"
+                    SizeChanged="PanelOverallSizeChanged">
+                        <Button
+                            Text="Test 1"
+                            TextColor="Black"
+                            BorderWidth="1"
+                            BorderColor="Black"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Start"/>
+                        <Button
+                            Text="Test 2"
+                            TextColor="Black"
+                            BorderWidth="1"
+                            BorderColor="Black"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Start" />
+                    </StackLayout>
+                </StackLayout>
+        </ScrollView>
+            </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
