@@ -6,15 +6,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
-    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.3" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
-    <PackageReference Include="Plugin.MediaManager.Forms" Version="0.8.0" />
-    <PackageReference Include="Xam.Forms.VideoPlayer" Version="1.0.6" />
+    <PackageReference Include="Plugin.MediaManager.Forms" Version="0.9.6" />
+    <PackageReference Include="Xam.Forms.VideoPlayer" Version="1.0.7" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
+    <PackageReference Include="Plugin.LocalNotification" Version="4.1.3" />
+    <PackageReference Include="Realm" Version="4.3.0" />
+    <PackageReference Include="Fody" Version="6.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Realm.Fody" Version="4.3.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dashboard\" />
@@ -55,5 +68,38 @@
     <Folder Include="Model\ModelMasterClass\" />
     <Folder Include="Model\ModelMasterClass\ModelMasterClassPeople\" />
     <Folder Include="Pages\PageEasyScrollHeader\" />
+    <Folder Include="Renderer\interface\" />
+    <Folder Include="Model\ModelPhoneContactsUser\" />
+    <Folder Include="Components\ComponentChat\" />
+    <Folder Include="Components\ComponentChat\ComponentMessagesChatCells\" />
+    <Folder Include="Components\ComponentChat\ComponentMessagesChatCells\MessageIncomingViewCell\" />
+    <Folder Include="Components\ComponentChat\ComponentMessagesChatCells\MessageOutgoingViewCell\" />
+    <Folder Include="StyleResourceDictionary\" />
+    <Folder Include="Pages\PageChat\" />
+    <Folder Include="Components\ComponentChat\ComponentMessagesChatCells\EditorChat\" />
+    <Folder Include="Components\ComponentChat\ComponentMessagesChatCells\ChatInputBarView\" />
+    <Folder Include="ViewModel\VMMessageChat\" />
+    <Folder Include="Function\" />
+    <Folder Include="Model\ModelChatMessages\" />
+    <Folder Include="Converter\" />
+    <Folder Include="Converter\ConverterChatMessages\" />
+    <Folder Include="Components\ComponentPopupContextMenu\" />
+    <Folder Include="ViewModel\VMPopupContextMenu\" />
+    <Folder Include="Renderer\interface\AuthSocialNetworks\" />
+    <Folder Include="Renderer\interface\DevicePhoneContactsUser\" />
+    <Folder Include="Renderer\interface\Downloader\" />
+    <Folder Include="EventsArgs\" />
+    <Folder Include="EventsArgs\DownloadEventArgs\" />
+    <Folder Include="Components\ComponentViewSortered\" />
+    <Folder Include="Renderer\interface\LocalNotificationManager\" />
+    <Folder Include="Model\ModelNotificationEventArgs\" />
+    <Folder Include="Pages\PageRealm\" />
+    <Folder Include="Model\ModelRealm\" />
+    <Folder Include="Model\ModelRealm\StudentTable\" />
+    <Folder Include="Model\ModelRealm\ModelOptionItems\" />
+    <Folder Include="ViewModel\VMRealm\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="StyleResourceDictionary\StyleResourceDictionary.xml" />
   </ItemGroup>
 </Project>

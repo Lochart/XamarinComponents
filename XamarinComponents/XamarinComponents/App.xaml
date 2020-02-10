@@ -7,47 +7,6 @@
     mc:Ignorable="d"
     x:Class="XamarinComponents.App">
     <Application.Resources>
-        <ResourceDictionary>
-            <Style x:Key="Line" TargetType="Label">
-                <Setter Property="HeightRequest" Value="1"/>
-                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
-            </Style>
-            <Style x:Key="Title" TargetType="Label">
-                <Setter Property="TextColor" Value="#979797"/>
-                <Setter Property="FontSize" Value="12"/>
-                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
-            </Style>
-            <Style x:Key="Description" TargetType="Label">
-                <Setter Property="TextColor" Value="#979797"/>
-                <Setter Property="FontSize" Value="12"/>
-                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
-            </Style>
-            <Style x:Key="ButtonExit" TargetType="Button">
-                <Setter Property="CornerRadius" Value="16"/>
-                <Setter Property="FontSize" Value="10"/>
-                <Setter Property="BorderWidth" Value="0"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="HeightRequest" Value="32"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="BackgroundColor" Value="#C35C5C"/>
-            </Style>
-            <Style x:Key="ButtonExampleOne" TargetType="Button">
-                <Setter Property="Text" Value="ButtonExampleOne"/>
-                <Setter Property="CornerRadius" Value="16"/>
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="BorderWidth" Value="0"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="BackgroundColor" Value="Black"/>
-            </Style>
-            <Style x:Key="ButtonExampleTwo" TargetType="Button">
-                <Setter Property="Text" Value="ButtonExampleTwo"/>
-                <Setter Property="CornerRadius" Value="16"/>
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="BorderWidth" Value="2"/>
-                <Setter Property="BorderColor" Value="Red"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="BackgroundColor" Value="Black"/>
-            </Style>
-        </ResourceDictionary>
+        <ResourceDictionary Source="/StyleResourceDictionary/DefaultTheme.xaml"/>
     </Application.Resources>
 </Application>

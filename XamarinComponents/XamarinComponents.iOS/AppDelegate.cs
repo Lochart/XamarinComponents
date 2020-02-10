@@ -6,6 +6,7 @@ using FFImageLoading.Forms.Platform;
 using Foundation;
 using MediaManager;
 using UIKit;
+using UserNotifications;
 
 namespace XamarinComponents.iOS
 {
@@ -24,8 +25,13 @@ namespace XamarinComponents.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            // Высота экрана устройства
             App.DeviceWindowHeight = (int)UIScreen.MainScreen.Bounds.Height;
+
+            // Ширина экрана устройства
             App.DeviceWindowWidth = (int)UIScreen.MainScreen.Bounds.Width;
+
+            #region Подключение пакетов nuget
 
             Xam.Forms.VideoPlayer.iOS.VideoPlayerRenderer.Init();
 
@@ -44,10 +50,30 @@ namespace XamarinComponents.iOS
             };
             ImageService.Instance.Initialize(config);
 
+            Rg.Plugins.Popup.Popup.Init();
+
+            // Ask the user for permission to show notifications on iOS 10.0+ at startup.
+            // If not asked at startup, user will be asked when showing the first notification.
+            Plugin.LocalNotification.NotificationCenter.AskPermission();
+
+            UNUserNotificationCenter.Current.Delegate = new IOSNotificationReceiver();
+
+            #endregion
+
             global::Xamarin.Forms.Forms.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        /// <summary>
+        /// Сообщает делегату, что приложение собирается выйти на передний план
+        /// </summary>
+        /// <param name="uiApplication"></param>
+        public override void WillEnterForeground(UIApplication uiApplication)
+        {
+            Plugin.LocalNotification.NotificationCenter.ResetApplicationIconBadgeNumber(uiApplication);
         }
     }
 }

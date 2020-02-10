@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:XamarinComponents;assembly=XamarinComponents"
+    x:Class="XamarinComponents.PageChat">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--<custom:InvertBooleanConverter
+                x:Key="InvertBooleanConverter" />-->
+            <custom:ConverterChatMessages 
+                x:Key = "ConverterChatMessages"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid
+                RowSpacing="0" 
+                ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <AbsoluteLayout
+                    x:Name="Header"
+                    Grid.Row="0">
+                    <StackLayout
+                        AbsoluteLayout.LayoutFlags="SizeProportional"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1">
+                        <!--<ListView
+                            x:Name="MessagesListView"
+                            HasUnevenRows="true" 
+                            SelectionMode="None"
+                            SeparatorVisibility="None" 
+                            VerticalScrollBarVisibility="Never"
+                            ItemTemplate="{StaticResource ConverterChatMessages}"
+                            ItemsSource="{Binding Messages}"/>-->
+                        <!--<StackLayout
+                            IsVisible= "{Binding SubVisible}"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            BackgroundColor="{DynamicResource bgDarkOrWhite}"
+                            Padding="20"
+                            Spacing="50">
+                            <Image
+                                BackgroundColor="Transparent"
+                                Source="IconSubMessage.png"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+                            <Label
+                                Text="{Binding StubMessage}"
+                                TextColor="Silver"
+                                FontSize="13"
+                                BackgroundColor="{DynamicResource bgDarkOrWhite}"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>-->
+                    </StackLayout>
+                </AbsoluteLayout>
+                <custom:ComponentsLine
+                    BackgroundColorLine="DarkGray"
+                    Grid.Row="1"/>
+                <custom:ChatInputBarView
+                    x:Name="ChatInput"
+                    Grid.Row="2"
+                    IsVisible="{Binding VisibleBarView}"
+                    Padding = "10, 4"
+                    CommandOpenPopupMenuContext="{Binding CommandOpenPopupMenuContext}"
+                    MessageText="{Binding MessageText, Mode=TwoWay}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

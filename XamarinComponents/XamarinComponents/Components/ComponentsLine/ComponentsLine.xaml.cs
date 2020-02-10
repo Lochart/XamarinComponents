@@ -5,7 +5,7 @@ namespace XamarinComponents
     public partial class ComponentsLine : ContentView
     {
         /// <summary>
-        /// Фон линий
+        /// Цвет линий
         /// </summary>
         public static readonly BindableProperty BackgroundColorLineProperty =
             BindableProperty.Create(

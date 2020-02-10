@@ -20,7 +20,7 @@ namespace XamarinComponents
         public ICommand CommandVideoEventsButton { get; set; }
 
         /// <summary>
-        /// Статус возвпроизведения
+        /// Статус воспроизведения
         /// </summary>
         public static readonly BindableProperty VideoUrlProperty =
         BindableProperty.Create("VideoUrl", typeof(string), typeof(ComponentVideoPlayer), "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
@@ -32,7 +32,7 @@ namespace XamarinComponents
         }
 
         /// <summary>
-        /// Статус возвпроизведения
+        /// Статус воспроизведения
         /// </summary>
         public static readonly BindableProperty StatusButtonProperty =
             BindableProperty.Create("StatusButton", typeof(string), typeof(ComponentVideoPlayer), "Play");
@@ -44,7 +44,7 @@ namespace XamarinComponents
         }
 
         /// <summary>
-        /// Статус возвпроизведения
+        /// Статус воспроизведения
         /// </summary>
         public static readonly BindableProperty UriVideoSourceProperty =
             BindableProperty.Create("StatusButton", typeof(UriVideoSource), typeof(ComponentVideoPlayer), new UriVideoSource

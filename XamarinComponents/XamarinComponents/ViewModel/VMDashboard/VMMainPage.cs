@@ -20,6 +20,11 @@ namespace XamarinComponents
                 AddModelComponents(5, "Entry", "Entry"),
                 AddModelComponents(6, "MasterClass Sticker Header, ListView", "StickerHeader"),
                 AddModelComponents(7, "Easy StickerHeader", "StickerHeader"),
+                AddModelComponents(8, "Auth App VK", "VK"),
+                AddModelComponents(9, "Chat WebSocket", "Chat"),
+                AddModelComponents(10, "Скачать файл", "Downloader"),
+                AddModelComponents(11, "Локальные уведомления Plugin.LocalNotification", "Notification"),
+                AddModelComponents(12, "База данных Realm", "База данных"),
             };
 
         }
@@ -32,16 +37,6 @@ namespace XamarinComponents
         };
 
         public void ViewNavigationPage(INavigation navigation) => NavigationPage = navigation;
-
-        /// <summary>
-        /// Called when page is appearing.
-        /// </summary>
-        public virtual void OnAppearing() { }
-
-        /// <summary>
-        /// Called when the view model is disappearing. View Model clean-up should be performed here.
-        /// </summary>
-        public virtual void OnDisappearing() { }
     }
 }
 

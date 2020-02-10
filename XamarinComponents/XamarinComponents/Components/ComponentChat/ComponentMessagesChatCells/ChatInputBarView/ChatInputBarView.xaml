@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:XamarinComponents"
+    x:Class="XamarinComponents.ChatInputBarView"
+    VerticalOptions="EndAndExpand"
+    x:Name="ViewChatInputBar">
+    <Grid
+        BackgroundColor="{DynamicResource bgDarkOrWhite}"
+        RowSpacing="0" 
+        ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <ImageButton
+            Grid.Column="0"
+            Source="PaperClipChat.png"
+            HorizontalOptions="Center"
+            Style="{StaticResource StyleImageButtonChat}"
+            Command="{Binding CommandOpenPopupMenuContext, Source={x:Reference ViewChatInputBar}}">
+            <ImageButton.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.iOS>
+                        <Thickness
+                            Left="0"
+                            Top="0"
+                            Right="0"
+                            Bottom="5" />
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                        <Thickness
+                            Left="0"
+                            Top="0"
+                            Right="0"
+                            Bottom="4" />
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </ImageButton.Margin>
+        </ImageButton>
+        <custom:StyleEditorChat  
+            x:Name="txtMessage"
+            TextColor="{DynamicResource textStandartColor}"
+            AutoSize="TextChanges"
+            FontSize="14"
+            Keyboard="Chat"
+            MinimumHeightRequest="54"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Focused="TxtMessage_Focused"
+            Grid.Row="1"
+            Grid.Column="1" />
+        <ImageButton
+            Grid.Column="2" 
+            Source="sendMessage.png"
+            HorizontalOptions="Center"
+            Style="{StaticResource StyleImageButtonChat}"
+            CommandParameter="{Binding Source={x:Reference Name=txtMessage}, Path=Text}" 
+            Command="{Binding SendMessage}">
+            <ImageButton.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.iOS>
+                        <Thickness
+                            Left="0"
+                            Top="0"
+                            Right="0"
+                            Bottom="5" />
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                        <Thickness
+                            Left="0"
+                            Top="0"
+                            Right="0"
+                            Bottom="4" />
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </ImageButton.Margin>
+        </ImageButton>
+    </Grid>
+</ContentView>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinComponents.PageRealm">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ContentView
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+                <StackLayout>
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="StartAndExpand">
+                        <Entry
+                            Placeholder="Enter Name..."
+                            Text="{Binding StudentName, Mode=TwoWay}"/>
+                        <Button
+                            Text="Add Student"
+                            WidthRequest="100"
+                            Command="{Binding CommandAddStudent}"/>
+                        <ListView
+                            ItemsSource="{Binding StudentSource}"
+                            ItemSelected="listStudent_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="{Binding StudentName}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+            <ContentView
+                BackgroundColor="#C0808080"
+                Padding="10, 0"
+                IsVisible="{Binding EditViewIsVisible}"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <StackLayout
+                        Orientation="Vertical"
+                        HeightRequest="200"
+                        WidthRequest="300"
+                        BackgroundColor="White">
+                        <Entry
+                            Margin="20"
+                            Text="{Binding EditStudentName, Mode=TwoWay}"
+                            Placeholder="Edit Studentname"/>
+                        <Button
+                            Margin="20,0"
+                            Text="Edit"
+                            Command="{Binding CommandUpdateStudentName}"/>
+                        <Button
+                            Margin="20,0"
+                            Text="Cancel"
+                            Command="{Binding CommandPopupCanceled}"/>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+            <ContentView
+                IsVisible="{Binding OptionViewIsVisible}"
+                BackgroundColor="#C0808080"
+                Padding="10, 0"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <StackLayout
+                        Orientation="Vertical"
+                        HeightRequest="150"
+                        WidthRequest="150"
+                        BackgroundColor="White">
+                        <ListView
+                            ItemsSource="{Binding OptionItems}"
+                            ItemSelected="listOptions_ItemSelected" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                                Text="{Binding OptionText}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

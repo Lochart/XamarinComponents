@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Plugin.LocalNotification;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace XamarinComponents
 {
@@ -20,15 +22,35 @@ namespace XamarinComponents
         {
             InitializeComponent();
 
-            //Overall.Add("DeviceWindowHeight", DeviceWindowHeight);
-            //Overall.Add("DeviceWindowWidth", DeviceWindowWidth);
             ManagerLoaderPopup.Init();
+
+            // Получить локальные уведомления после нажатия
+            NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
 
             MainPage = new NavigationPage(
                 new MainPage
                 {
                     BindingContext = new VMMainPage()
                 });
+        }
+
+        /// <summary>
+        /// Обработка данных локальных уведомлений
+        /// </summary>
+        /// <param name="e"></param>
+        private void OnLocalNotificationTapped(NotificationTappedEventArgs e)
+        {
+            Debug.WriteLine("OnLocalNotificationTapped : " + e.Data);
+
+            if (string.IsNullOrWhiteSpace(e.Data))
+                return;
+
+            var list = ObjectSerializer.DeserializeObject<List<string>>(e.Data);
+
+            foreach(var item in list)
+                Debug.WriteLine("OnLocalNotificationTapped item : " + item);
+
+            // ...
         }
 
         protected override void OnStart()
